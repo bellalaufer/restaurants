@@ -6,7 +6,7 @@ function Main() {
         <main className="container mt-5">      
             <h2>Restaurants</h2>            
 
-      </main>
+        </main>
     );
 }
 
