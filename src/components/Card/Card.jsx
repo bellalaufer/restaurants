@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Card({text, description, image}) {
+
+function Card({text, description, image, id}) {
     return (
         <div className="card">
             <img src={image} className="card-img-top" alt={text} />
@@ -9,7 +11,10 @@ function Card({text, description, image}) {
                 <p>{description}</p>
             </div>
             <div className='d-flex justify-content-end'>
-                <button type="button" className="btn btn-secondary">Edit</button>
+                <Link to={`/edit/${id}`}>
+                <button type="button" className="btn btn-secondary mr-2">Edit</button>
+                </Link>
+                
                 <button type="button" className="btn btn-danger">Delete</button>
             </div>
         </div>
