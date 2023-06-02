@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { globalContext } from '../../contexts/globalContext';
 
 
 function Card({text, description, image, id}) {
+    const { dispatch } = useContext(globalContext)
+
+    function deleteCard(id) {
+        dispatch({
+            type: 'DELETE_CARD',
+            payload: {
+                id
+            }
+        })
+    }
     return (
         <div className="card">
             <img src={image} className="card-img-top" alt={text} />
@@ -14,8 +25,7 @@ function Card({text, description, image, id}) {
                 <Link to={`/edit/${id}`}>
                 <button type="button" className="btn btn-secondary mr-2">Edit</button>
                 </Link>
-                
-                <button type="button" className="btn btn-danger">Delete</button>
+                <button type="button" className="btn btn-danger" onClick={_ => deleteCard(id)}>Delete</button>
             </div>
         </div>
     );

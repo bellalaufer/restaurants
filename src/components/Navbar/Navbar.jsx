@@ -9,10 +9,8 @@ function Navbar(props) {
             <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div className="navbar-nav">
                     <Link to="/" className='nav-link'>Home</Link>
-                    <Link to="/cards" className='nav-link'>Cards</Link>
                     <Link to="/add" className='nav-link'>Add</Link>
-                    <Link to="/edit" className='nav-link'>Edit</Link>
-                    
+                    <Link to="/cards" className='nav-link'>Cards</Link>                
                 </div>
             </div>
         </div>

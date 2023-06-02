@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { globalContext } from '../../contexts/globalContext';
 
 function Edit() {
+    const navigate = useNavigate();
     const { state, dispatch } = useContext(globalContext)
     const { id } = useParams()
     const currentCard = state.list.find(el => el.id === +id)
@@ -21,6 +22,8 @@ function Edit() {
                 description: newDescription
             }
         })
+
+        navigate('/cards')
     }
     
     return (
@@ -62,8 +65,7 @@ function Edit() {
                                 <button type="submit" className="btn btn-primary mt-3">
                                     Save
                                 </button>
-                            </form>
-                            <p>{currentCard.description}</p>
+                            </form>                            
                         </div>
                     </div>
                 </div>
