@@ -10,6 +10,7 @@ function Edit() {
 
     const [newText, setNewText] = useState(currentCard.text);
     const [newDescription, setNewDescription] = useState(currentCard.description)
+    const [newImage, setNewImage] = useState(currentCard.image);
 
 
     function handleSubmit(event) {
@@ -19,7 +20,8 @@ function Edit() {
             payload: {
                 text: newText,
                 id: +id,
-                description: newDescription
+                description: newDescription,
+                image: newImage
             }
         })
 
@@ -28,52 +30,58 @@ function Edit() {
     
     return (
         <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-4">
-                    <div className="card">
-                    <img src={currentCard.image} className="card-img-top" alt={currentCard.text} />
-                        <div className="card-body">
-                            <h5 className="card-title">{currentCard.text}</h5>
-                            <form className="mb-3 container" onSubmit={handleSubmit}>
-                                <div className="mb-3">
-                                <label htmlFor="exampleInputEmail1" className="form-label">
-                                    Name: 
-                                </label>
-                                    <input
-                                    className="form-control"
-                                    id="exampleInputEmail1"
-                                    aria-describedby="emailHelp"
-                                    onChange={(event) => setNewText(event.target.value)}
-                                    value={newText}
-                                    />
-                                </div>
-                                <button type="submit" className="btn btn-primary">
-                                    Save
-                                </button>
-                                <div className="mb-3 mt-3">
-                                    <label htmlFor="exampleInputEmail1" className="form-label">
-                                    Description:
-                                    </label>
-                                        <input
-                                        className="form-control"
-                                        id="exampleInputEmail1"
-                                        aria-describedby="emailHelp"
-                                        onChange={(event) => setNewDescription(event.target.value)}
-                                        value={newDescription}
-                                        />
-                                </div>
-                                <button type="submit" className="btn btn-primary mt-3">
-                                    Save
-                                </button>
-                            </form>                            
-                        </div>
+        <div className="row justify-content-center">
+            <div className="col-md-4">
+            <div className="card">
+                <img src={newImage} className="card-img-top" alt={newText} />
+                <div className="card-body">
+                <h5 className="card-title">{newText}</h5>
+                <form className="mb-3 container" onSubmit={handleSubmit}>
+                    <div className="mb-3">
+                    <label htmlFor="editText" className="form-label">
+                        Name:
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="editText"
+                        value={newText}
+                        onChange={(event) => setNewText(event.target.value)}
+                    />
                     </div>
+                    <div className="mb-3">
+                    <label htmlFor="editDescription" className="form-label">
+                        Description:
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="editDescription"
+                        value={newDescription}
+                        onChange={(event) => setNewDescription(event.target.value)}
+                    />
+                    </div>
+                    <div className="mb-3">
+                        <label htmlFor="editImage" className="form-label">
+                      Image URL:
+                    </label>
+                    <input
+                        type="text"
+                        className="form-control"
+                        id="editImage"
+                        value={newImage}
+                        onChange={(event) => setNewImage(event.target.value)}
+                    />
+                    </div>
+                    <button type="submit" className="btn btn-primary">
+                    Save
+                    </button>
+                </form>
                 </div>
             </div>
-            
-
-            
+            </div>
         </div>
+      </div>
     );
 }
 

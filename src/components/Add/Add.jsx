@@ -1,33 +1,36 @@
 import React from 'react';
 import { globalContext } from '../../contexts/globalContext';
 import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Add(props) {
+    const navigate = useNavigate();
     
-const { dispatch } = useContext(globalContext)
+    const { dispatch } = useContext(globalContext)
 
-const [text, setText] = useState("");
-const [description, setDescription] = useState("");
-const [image, setImage] = useState("");
+    const [text, setText] = useState("");
+    const [description, setDescription] = useState("");
+    const [image, setImage] = useState("");
 
 
-function handleSubmit(event) {
-    event.preventDefault();
+    function handleSubmit(event) {
+        event.preventDefault();
 
-    dispatch({
-    type: 'ADD_IMAGE',
-    payload: {
-        image,
-        text,
-        description,
-        id: Date.now(),
+        dispatch({
+        type: 'ADD_IMAGE',
+        payload: {
+            image,
+            text,
+            description,
+            id: Date.now(),
+        }
+        })
+
+        setText('')
+        setImage('')
+        setDescription('')
+        navigate('/cards')
     }
-    })
-
-    setText('')
-    setImage('')
-    setDescription('')
-}
 
 
 return (
