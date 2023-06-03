@@ -8,7 +8,7 @@ function Cards() {
     useEffect(() => {
         dispatch({ 
             type: 'LOAD_CARDS' });
-    }, []);
+    }, [dispatch]);
 
 
     return (
