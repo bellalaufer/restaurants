@@ -63,7 +63,7 @@ function Edit() {
                     </div>
                     <div className="mb-3">
                         <label htmlFor="editImage" className="form-label">
-                      Image URL:
+                        Image URL:
                     </label>
                     <input
                         type="text"

@@ -5,10 +5,10 @@ export function reducer(state, action) {
             return { ...state, list: [...state.list, newImage]}
         }
         case 'EDIT_CARD': {
-            const {text, id, description} = action.payload
+            const {text, id, description, image} = action.payload
             const newList = state.list.map(el => {
                 if(el.id === +id) {
-                    return {...el, text: text, description: description}
+                    return {...el, text: text, description: description, image: image}
                 }
                 return el
             })

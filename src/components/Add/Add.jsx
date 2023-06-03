@@ -16,6 +16,10 @@ function Add(props) {
     function handleSubmit(event) {
         event.preventDefault();
 
+        if (!text || !description || !image) {            
+            return;
+        }
+
         dispatch({
         type: 'ADD_IMAGE',
         payload: {
