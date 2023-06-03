@@ -19,12 +19,13 @@ import Edit from "./components/Edit/Edit";
 function App() { 
 
   const initialState = {
-    tasks: [],
     text: "",
     list: []
   }
 
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  
   
   return (
     <div className="App">

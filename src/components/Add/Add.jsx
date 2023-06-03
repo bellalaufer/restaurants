@@ -21,13 +21,17 @@ function Add(props) {
         }
 
         dispatch({
-        type: 'ADD_IMAGE',
-        payload: {
-            image,
-            text,
-            description,
-            id: Date.now(),
-        }
+            type: 'ADD_IMAGE',
+            payload: {
+                image,
+                text,
+                description,
+                id: Date.now(),
+            }
+        })
+
+        dispatch({
+            type: 'SAVE_CARD'
         })
 
         setText('')

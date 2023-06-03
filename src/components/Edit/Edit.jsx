@@ -2,11 +2,15 @@ import React, { useContext, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { globalContext } from '../../contexts/globalContext';
 
-function Edit() {
+
+function Edit() {   
+
     const navigate = useNavigate();
     const { state, dispatch } = useContext(globalContext)
     const { id } = useParams()
-    const currentCard = state.list.find(el => el.id === +id)
+    const currentCard = state.list.find(el => el.id === +id)  
+    
+
 
     const [newText, setNewText] = useState(currentCard.text);
     const [newDescription, setNewDescription] = useState(currentCard.description)
@@ -23,6 +27,9 @@ function Edit() {
                 description: newDescription,
                 image: newImage
             }
+        })
+        dispatch({
+            type: 'SAVE_CARD'
         })
 
         navigate('/cards')
@@ -81,7 +88,7 @@ function Edit() {
             </div>
             </div>
         </div>
-      </div>
+        </div>
     );
 }
 

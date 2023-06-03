@@ -18,6 +18,15 @@ export function reducer(state, action) {
             const { id } = action.payload
             const newList = state.list.filter(el => el.id !== id)
             return {...state, list: newList}            
+        }
+        case 'SAVE_CARD': {
+            localStorage.setItem('cards', JSON.stringify(state.list));
+            return state
+        }
+        case 'LOAD_CARDS': {
+            const storedCards = localStorage.getItem('cards')
+            const cards = storedCards ? JSON.parse(storedCards) : [];
+            return { ...state, list: cards };
         }        
         default: {
         return state

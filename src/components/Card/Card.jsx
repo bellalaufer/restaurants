@@ -13,6 +13,9 @@ function Card({text, description, image, id}) {
                 id
             }
         })
+        dispatch({
+            type: 'SAVE_CARD'
+        })
     }
     return (
         <div className="card">

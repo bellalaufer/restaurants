@@ -1,11 +1,16 @@
 import React from 'react';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import Card from '../Card/Card';
 import { globalContext } from '../../contexts/globalContext';
 
 function Cards() {
-    const { state } = useContext(globalContext);
-    
+    const { state, dispatch } = useContext(globalContext);
+    useEffect(() => {
+        dispatch({ 
+            type: 'LOAD_CARDS' });
+    }, []);
+
+
     return (
         <div className="row my-5 container">
         {state.list.map((post) => (
